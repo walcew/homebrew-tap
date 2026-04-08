@@ -21,6 +21,11 @@ cask "openfortivpn-connect" do
 
   app "OpenFortiVpn Connect.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/OpenFortiVpn Connect.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.openfortivpn-connect.desktop",
     "~/Library/Caches/com.openfortivpn-connect.desktop",
