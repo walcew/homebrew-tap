@@ -1,9 +1,9 @@
 cask "openfortivpn-connect" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.1.3"
-  sha256 arm:   "ac1858cf8674404d2be1a63fc3a1d2f1104ead08f573263b6b07c72e4a6f6d04",
-         intel: "c90d760ec7289485f640856544770a3f2f70b016b9c230c80864e8dfdfa8f3ee"
+  version "0.1.4"
+  sha256 arm:   "4b7c31e1ef360289e6aa879e75479483567bbd8e0d57b16624c5fb9231f898a9",
+         intel: "fc1c0cfa7d59c645397d894686e4dcc9ef14e494f971294d2de661bff0a3fe68"
 
   url "https://github.com/walcew/openfortivpn-connect/releases/download/v#{version}/OpenFortiVpn.Connect_#{version}_#{arch}.dmg",
       verified: "github.com/walcew/openfortivpn-connect/"
