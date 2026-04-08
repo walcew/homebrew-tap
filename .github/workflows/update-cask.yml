@@ -17,7 +17,7 @@ on:
       asset_pattern:
         description: 'DMG asset name pattern. Use {version} and {arch} as placeholders'
         required: true
-        default: 'OpenFortiVpn%20Connect_{version}_{arch}.dmg'
+        default: 'OpenFortiVpn.Connect_{version}_{arch}.dmg'
 
 jobs:
   update:
@@ -51,7 +51,7 @@ jobs:
           PATTERN="${{ steps.params.outputs.asset_pattern }}"
 
           ARM64_ASSET=$(echo "$PATTERN" | sed "s/{version}/$VERSION/g" | sed "s/{arch}/aarch64/g")
-          X64_ASSET=$(echo "$PATTERN" | sed "s/{version}/$VERSION/g" | sed "s/{arch}/x86_64/g")
+          X64_ASSET=$(echo "$PATTERN" | sed "s/{version}/$VERSION/g" | sed "s/{arch}/x64/g")
 
           curl -fL -o arm64.dmg "https://github.com/${REPO}/releases/download/v${VERSION}/${ARM64_ASSET}"
           curl -fL -o x64.dmg "https://github.com/${REPO}/releases/download/v${VERSION}/${X64_ASSET}"

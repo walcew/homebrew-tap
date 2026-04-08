@@ -1,11 +1,11 @@
 cask "openfortivpn-connect" do
-  arch arm: "aarch64", intel: "x86_64"
+  arch arm: "aarch64", intel: "x64"
 
   version "0.1.0"
   sha256 arm:   "PLACEHOLDER_ARM64_SHA256",
-         intel: "PLACEHOLDER_X86_64_SHA256"
+         intel: "PLACEHOLDER_X64_SHA256"
 
-  url "https://github.com/walcew/openfortivpn-connect/releases/download/v#{version}/OpenFortiVpn%20Connect_#{version}_#{arch}.dmg",
+  url "https://github.com/walcew/openfortivpn-connect/releases/download/v#{version}/OpenFortiVpn.Connect_#{version}_#{arch}.dmg",
       verified: "github.com/walcew/openfortivpn-connect/"
   name "OpenFortiVpn Connect"
   desc "macOS GUI client for openfortivpn VPN connections"
