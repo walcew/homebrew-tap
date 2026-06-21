@@ -17,7 +17,7 @@ cask "openfortivpn-connect" do
   end
 
   depends_on formula: "openfortivpn"
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "OpenFortiVpn Connect.app"
 
