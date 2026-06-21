@@ -8,7 +8,7 @@ cask "openfortivpn-connect" do
   url "https://github.com/walcew/openfortivpn-connect/releases/download/v#{version}/OpenFortiVpn.Connect_#{version}_#{arch}.dmg",
       verified: "github.com/walcew/openfortivpn-connect/"
   name "OpenFortiVpn Connect"
-  desc "macOS GUI client for openfortivpn VPN connections"
+  desc "GUI client for openfortivpn VPN connections"
   homepage "https://github.com/walcew/openfortivpn-connect"
 
   livecheck do
