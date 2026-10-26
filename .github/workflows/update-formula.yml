@@ -1,0 +1,58 @@
+name: Update Formula
+
+# Confere a última release do repo de origem e atualiza url/sha256 da fórmula.
+# Roda diariamente e sob demanda; não precisa de token de outro repo porque a origem é pública.
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: 'Formula name (e.g. chatmine)'
+        required: true
+        default: 'chatmine'
+      repo:
+        description: 'Source repo (e.g. walcew/chatmine)'
+        required: true
+        default: 'walcew/chatmine'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout tap repository
+        uses: actions/checkout@v4
+
+      - name: Update formula to latest release
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORMULA: ${{ inputs.formula || 'chatmine' }}
+          REPO: ${{ inputs.repo || 'walcew/chatmine' }}
+        run: |
+          FILE="Formula/${FORMULA}.rb"
+          TAG=$(gh release view --repo "$REPO" --json tagName -q .tagName)
+          VERSION="${TAG#v}"
+          URL="https://github.com/${REPO}/archive/refs/tags/${TAG}.tar.gz"
+          if grep -q "^  url \"${URL}\"" "$FILE"; then
+            echo "${FORMULA} já está em ${VERSION}"
+            exit 0
+          fi
+          SHA=$(curl -fsSL "$URL" | sha256sum | awk '{print $1}')
+          # Só as linhas da fórmula (2 espaços); as dos resources têm 4.
+          sed -i "s|^  url \".*\"|  url \"${URL}\"|; s|^  sha256 \".*\"|  sha256 \"${SHA}\"|" "$FILE"
+          echo "formula=${FORMULA}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      # shortcut: os resources Python não são regenerados aqui; quando as dependências do
+      # pyproject mudarem, rode `brew update-python-resources walcew/tap/chatmine` localmente.
+      - name: Commit and push
+        if: steps.update.outputs.version != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/
+          git commit -m "Update ${{ steps.update.outputs.formula }} to v${{ steps.update.outputs.version }}"
+          git push

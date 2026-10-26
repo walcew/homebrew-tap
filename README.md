@@ -8,6 +8,18 @@ Homebrew tap for applications by [walcew](https://github.com/walcew).
 brew tap walcew/tap
 ```
 
+## Available Formulae
+
+| Formula | Description |
+|---------|-------------|
+| `chatmine` | Extract chat history from desktop apps (Teams, WhatsApp) for AI agents |
+
+### Install a formula
+
+```bash
+brew install walcew/tap/chatmine
+```
+
 ## Available Casks
 
 | Cask | Description |
