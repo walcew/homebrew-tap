@@ -16,7 +16,6 @@ cask "openfortivpn-connect" do
     strategy :github_latest
   end
 
-  depends_on formula: "openfortivpn"
   depends_on macos: :monterey
 
   app "OpenFortiVpn Connect.app"
