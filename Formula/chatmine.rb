@@ -1,10 +1,10 @@
 class Chatmine < Formula
   include Language::Python::Virtualenv
 
-  desc "Extract chat history from desktop apps (Teams, WhatsApp) for AI agents"
+  desc "Extract chat history from desktop apps (Teams, WhatsApp, Apple Mail) for AI agents"
   homepage "https://github.com/walcew/chatmine"
-  url "https://github.com/walcew/chatmine/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "4ef2d0891b4f25aae2558fd5068b2108e805e85a76abcc8775631a73de6fb743"
+  url "https://github.com/walcew/chatmine/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "07635a1471fdd8ce62365a6e77780a6eb6c9c8faf6ffda7bd3c579c77d40803b"
   license "MIT"
 
   livecheck do
@@ -94,5 +94,6 @@ class Chatmine < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/chatmine --version")
     assert_match "whatsapp", shell_output("#{bin}/chatmine providers")
+    assert_match "mail", shell_output("#{bin}/chatmine providers")
   end
 end
