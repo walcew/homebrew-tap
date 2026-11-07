@@ -3,8 +3,8 @@ class Chatmine < Formula
 
   desc "Extract chat history from desktop apps (Teams, WhatsApp, Apple Mail) for AI agents"
   homepage "https://github.com/walcew/chatmine"
-  url "https://github.com/walcew/chatmine/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "07635a1471fdd8ce62365a6e77780a6eb6c9c8faf6ffda7bd3c579c77d40803b"
+  url "https://github.com/walcew/chatmine/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "75cbd01f1aa3a651b40eb8ca7aaf9d835e497582038941c8ab3e49ea4e9f99c6"
   license "MIT"
 
   livecheck do
