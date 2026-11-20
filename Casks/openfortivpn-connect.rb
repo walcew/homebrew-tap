@@ -19,6 +19,7 @@ cask "openfortivpn-connect" do
   depends_on macos: :monterey
 
   app "OpenFortiVpn Connect.app"
+  binary "#{appdir}/OpenFortiVpn Connect.app/Contents/MacOS/openvpngui", target: "vpnconnect"
 
   postflight do
     system_command "/usr/bin/xattr",
