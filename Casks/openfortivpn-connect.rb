@@ -7,7 +7,7 @@ cask "openfortivpn-connect" do
 
   url "https://github.com/walcew/openfortivpn-connect/releases/download/v#{version}/OpenFortiVpn.Connect_#{version}_#{arch}.dmg"
   name "OpenFortiVpn Connect"
-  desc "GUI client for openfortivpn VPN connections"
+  desc "Fortinet SSL VPN client with a GUI and a CLI"
   homepage "https://github.com/walcew/openfortivpn-connect"
 
   livecheck do
