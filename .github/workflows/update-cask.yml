@@ -6,18 +6,18 @@ on:
   workflow_dispatch:
     inputs:
       cask:
-        description: 'Cask name (e.g. openfortivpn-connect)'
+        description: 'Cask name (e.g. vpnconnect)'
         required: true
       version:
         description: 'Version to update to (without v prefix)'
         required: true
       repo:
-        description: 'Source repo (e.g. walcew/openfortivpn-connect)'
+        description: 'Source repo (e.g. walcew/vpnconnect)'
         required: true
       asset_pattern:
         description: 'DMG asset name pattern. Use {version} and {arch} as placeholders'
         required: true
-        default: 'OpenFortiVpn.Connect_{version}_{arch}.dmg'
+        default: 'VPN.Connect_{version}_{arch}.dmg'
 
 jobs:
   update:

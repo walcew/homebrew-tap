@@ -24,10 +24,10 @@ brew install walcew/tap/chatmine
 
 | Cask | Description |
 |------|-------------|
-| `openfortivpn-connect` | macOS GUI client for openfortivpn VPN connections |
+| `vpnconnect` | VPN client for macOS with a GUI and a CLI (formerly `openfortivpn-connect`) |
 
 ### Install a cask
 
 ```bash
-brew install --cask walcew/tap/openfortivpn-connect
+brew install --cask walcew/tap/vpnconnect
 ```
