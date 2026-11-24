@@ -1,9 +1,9 @@
 cask "vpnconnect" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.8.1"
-  sha256 arm:   "2743d46c12e2968f6401ea29b3360aa101600b31d1917f4ba4df4edc3a7ee427",
-         intel: "74dafa505fac03dcd754b9861ef54c48b1d52be501788eed890a3e739d65689a"
+  version "0.8.2"
+  sha256 arm:   "eb96ad6332317471c5b4cc351af8e7a544e73f86f91edf796dbe95f81ad98f95",
+         intel: "c62ac17976f1cd75e0059af220cc144f750f5609534b03acdea0fbafb7ea2788"
 
   url "https://github.com/walcew/vpnconnect/releases/download/v#{version}/VPN.Connect_#{version}_#{arch}.dmg"
   name "VPN Connect"
